@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center h-12">
             <img
-              src="/vlogo.png"
+              src="/alogo.png"
               alt="Ashenvell Logo"
               className="h-18 w-auto object-contain"
             />
