@@ -36,20 +36,20 @@ const ContactSection: React.FC = () => {
     setIsSubmitting(true);
     setSubmitMessage('');
 
-    // Aquí integrarías tu lógica de envío de email (ej. API endpoint, EmailJS, Formspree)
-    // Por ahora, simularemos un envío:
     try {
-      // const response = await fetch('/api/contact', { // Ejemplo de endpoint API
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
-      // if (!response.ok) throw new Error('Error al enviar el mensaje.');
-      // const result = await response.json();
-      // setSubmitMessage(result.message || 'Mensaje enviado con éxito!');
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulación
-      setSubmitMessage('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Error al enviar el mensaje.');
+      }
+
+      setSubmitMessage(result.message || '¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');
       setFormData({ name: '', email: '', message: '' }); // Limpiar formulario
 
     } catch (error) {
