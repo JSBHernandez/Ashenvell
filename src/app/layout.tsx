@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Ashenvell | Innovación y Desarrollo Digital",
   description: "Ashenvell - Creamos soluciones de software futuristas y de alto impacto. Servicios de desarrollo web, móvil y consultoría tecnológica.",
   keywords: "desarrollo web, desarrollo móvil, Next.js, TypeScript, Tailwind CSS, Ashenvell, software, tecnología, portafolio",
+  icons: {
+    icon: '/alogo.png',
+  },
 };
 
 export default function RootLayout({
