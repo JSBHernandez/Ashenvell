@@ -18,9 +18,9 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vondervaltz | Innovación y Desarrollo Digital",
-  description: "Vondervaltz - Creamos soluciones de software futuristas y de alto impacto. Servicios de desarrollo web, móvil y consultoría tecnológica.",
-  keywords: "desarrollo web, desarrollo móvil, Next.js, TypeScript, Tailwind CSS, Vondervaltz, software, tecnología, portafolio",
+  title: "Ashenvell | Innovación y Desarrollo Digital",
+  description: "Ashenvell - Creamos soluciones de software futuristas y de alto impacto. Servicios de desarrollo web, móvil y consultoría tecnológica.",
+  keywords: "desarrollo web, desarrollo móvil, Next.js, TypeScript, Tailwind CSS, Ashenvell, software, tecnología, portafolio",
 };
 
 export default function RootLayout({
@@ -38,7 +38,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
-        <FloatingWhatsAppButton /> 
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );

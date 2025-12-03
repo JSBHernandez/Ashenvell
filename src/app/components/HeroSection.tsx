@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Image from "next/image"; 
+import Image from "next/image";
 
 const HeroSection: React.FC = () => {
   // Define la ruta a tu imagen principal para el Hero
-  const heroImagePath = "/abstract31g.png"; 
+  const heroImagePath = "/abstract31g.png";
 
   return (
     <section
@@ -20,7 +20,7 @@ const HeroSection: React.FC = () => {
           <div className="text-center md:text-left animate-slide-in-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
               <span className="block text-brand-light-text">Bienvenido a</span>
-              <span className="block text-brand-accent">Vondervaltz</span>
+              <span className="block text-brand-accent">Ashenvell</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-brand-muted-text max-w-xl mx-auto md:mx-0 mb-10">
               Creamos experiencias digitales futuristas y soluciones de software que impulsan la innovación.
@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
             <div className="w-full h-full max-w-md md:max-w-lg lg:max-w-xl mx-auto">
               <Image
                 src={heroImagePath}
-                alt="Visualización de Vondervaltz" // Cambia el alt text
+                alt="Visualización de Ashenvell" // Cambia el alt text
                 width={600} // Ancho intrínseco de tu imagen
                 height={500} // Alto intrínseco de tu imagen
                 className="object-contain w-full h-full rounded-lg shadow-xl" // 'object-contain' para que se vea completa

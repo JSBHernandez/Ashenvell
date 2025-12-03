@@ -43,11 +43,11 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center h-12">
-          <img
-          src="/vlogo.png"
-          alt="Vondervaltz Logo"
-          className="h-18 w-auto object-contain"
-          />
+            <img
+              src="/vlogo.png"
+              alt="Ashenvell Logo"
+              className="h-18 w-auto object-contain"
+            />
           </Link>
 
           {/* Navegación Desktop */}

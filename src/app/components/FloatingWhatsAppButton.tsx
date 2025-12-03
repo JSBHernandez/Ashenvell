@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image'; // Importa el componente Image de Next.js
 
 const FloatingWhatsAppButton: React.FC = () => {
-  const whatsappLink = "https://api.whatsapp.com/send?phone=573204032120&text=%C2%A1%20Quiero%20mi%20P%C3%A1gina%20Web%20ya%20mismo%20!%F0%9F%92%BB";
+  const whatsappLink = "https://api.whatsapp.com/send?phone=573239007932&text=%C2%A1%20Quiero%20mi%20P%C3%A1gina%20Web%20ya%20mismo%20!%F0%9F%92%BB";
   // Asegúrate de que el nombre del archivo coincida exactamente con el que tienes en public/
   // Por ejemplo, si tu imagen está en public/whatsicon.png
   const iconPath = "/whats.png"; // Next.js sirve los archivos de /public desde la raíz '/'
