@@ -3,7 +3,7 @@ import { Exo_2, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton"; // <-- Importa el nuevo componente
+import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 
 const exo2 = Exo_2({
   subsets: ["latin"],

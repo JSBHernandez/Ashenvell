@@ -63,11 +63,11 @@ const ServicesSection: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisibleCards((prev) => ({ ...prev, [entry.target.id]: true }));
-            observer.unobserve(entry.target); // Opcional: para animar solo una vez
+            observer.unobserve(entry.target); 
           }
         });
       },
-      { threshold: 0.1 } // El 10% del elemento debe ser visible
+      { threshold: 0.1 } 
     );
 
     cardRefs.current.forEach((ref) => {

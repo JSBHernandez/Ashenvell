@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Columna 2: Enlaces rápidos (opcional) */}
+          {/* Columna 2: Enlaces rápidos*/}
           <div className="text-center">
             <h3 className="text-lg font-semibold text-brand-blue-light mb-3">Navegación</h3>
             <ul className="space-y-2">

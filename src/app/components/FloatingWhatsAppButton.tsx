@@ -5,9 +5,7 @@ import Image from 'next/image'; // Importa el componente Image de Next.js
 
 const FloatingWhatsAppButton: React.FC = () => {
   const whatsappLink = "https://api.whatsapp.com/send?phone=573239007932&text=%C2%A1%20Quiero%20mi%20P%C3%A1gina%20Web%20ya%20mismo%20!%F0%9F%92%BB";
-  // Asegúrate de que el nombre del archivo coincida exactamente con el que tienes en public/
-  // Por ejemplo, si tu imagen está en public/whatsicon.png
-  const iconPath = "/whats.png"; // Next.js sirve los archivos de /public desde la raíz '/'
+  const iconPath = "/whats.png"; 
 
   return (
     <Link
@@ -23,15 +21,15 @@ const FloatingWhatsAppButton: React.FC = () => {
                  shadow-xl hover:shadow-2xl
                  transition-all duration-300 ease-in-out
                  transform hover:scale-110
-                 animate-subtle-pulse" // O la animación que prefieras
+                 animate-subtle-pulse"
     >
       <div className="relative w-7 h-7 md:w-8 md:h-8"> {/* Contenedor para la imagen */}
         <Image
           src={iconPath}
           alt="WhatsApp Icon"
-          layout="fill" // Hace que la imagen llene el contenedor
-          objectFit="contain" // Asegura que toda la imagen sea visible sin ser recortada, o usa 'cover' si prefieres
-          priority // Opcional: si consideras que es un elemento importante de carga rápida
+          layout="fill" 
+          objectFit="contain" 
+          priority 
         />
       </div>
     </Link>

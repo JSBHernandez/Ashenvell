@@ -10,7 +10,6 @@ const HeroSection: React.FC = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-dark"
     >
-      {/* Fondo con resplandor (opcional, puedes quitarlo si tu imagen ya tiene fondo) */}
       <div className="absolute inset-0 bg-hero-glow-background z-0"></div>
 
       {/* Contenedor principal del layout */}
@@ -38,11 +37,11 @@ const HeroSection: React.FC = () => {
             <div className="w-full h-full max-w-md md:max-w-lg lg:max-w-xl mx-auto">
               <Image
                 src={heroImagePath}
-                alt="Visualización de Ashenvell" // Cambia el alt text
-                width={600} // Ancho intrínseco de tu imagen
-                height={500} // Alto intrínseco de tu imagen
-                className="object-contain w-full h-full rounded-lg shadow-xl" // 'object-contain' para que se vea completa
-                priority // Recomendado para imágenes LCP (Largest Contentful Paint)
+                alt="Visualización de Ashenvell"
+                width={600} 
+                height={500}
+                className="object-contain w-full h-full rounded-lg shadow-xl"
+                priority 
               />
             </div>
           </div>
