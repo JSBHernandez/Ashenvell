@@ -22,7 +22,12 @@ export const metadata: Metadata = {
   description: "Ashenvell - Creamos soluciones de software futuristas y de alto impacto. Servicios de desarrollo web, móvil y consultoría tecnológica.",
   keywords: "desarrollo web, desarrollo móvil, Next.js, TypeScript, Tailwind CSS, Ashenvell, software, tecnología, portafolio",
   icons: {
-    icon: '/alogo.png',
+    icon: [
+      { url: '/alogo.png' },
+      { url: '/alogo.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/alogo.png',
+    apple: '/alogo.png',
   },
 };
 
