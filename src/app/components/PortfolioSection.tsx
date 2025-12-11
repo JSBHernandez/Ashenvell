@@ -12,8 +12,12 @@ const PortfolioSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Green Consulting */}
           <div className="bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <div className="relative h-64 bg-gradient-to-br from-green-900 to-green-700 flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">Green Consulting</span>
+            <div className="relative h-80 overflow-hidden">
+              <img 
+                src="/greencapture.png" 
+                alt="Green Consulting Ingeniería"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-[#60A5FA] mb-2">Green Consulting Ingeniería</h3>
@@ -38,8 +42,12 @@ const PortfolioSection = () => {
 
           {/* Ley Explico */}
           <div className="bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <div className="relative h-64 bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">Ley Explico</span>
+            <div className="relative h-80 overflow-hidden">
+              <img 
+                src="/leycapture.png" 
+                alt="Ley Explico"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-[#60A5FA] mb-2">Ley Explico</h3>
