@@ -1,49 +1,47 @@
-"use client"; // Para animaciones en scroll con Intersection Observer
+"use client";
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import type { ServiceItem } from '@/types';
 
-// Placeholder para iconos (puedes usar SVGs o una librería)
 const PlaceholderIcon = () => (
   <svg className="w-12 h-12 text-brand-accent mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
   </svg>
 );
 
-
 const servicesData: ServiceItem[] = [
   {
     id: 'web',
     icon: 'code', 
-    title: 'Desarrollo Web Avanzado',
-    description: 'Aplicaciones web modernas, rápidas y escalables con las últimas tecnologías y frameworks (Next.js, React, Node.js).',
+    title: 'Advanced Web Development',
+    description: 'Modern, fast and scalable web applications with the latest technologies and frameworks (Next.js, React, Node.js).',
   },
   {
     id: 'mobile',
     icon: 'mobile',
-    title: 'Aplicaciones Móviles Nativas e Híbridas',
-    description: 'Experiencias móviles fluidas y de alto rendimiento Android, IOS y WebView.',
+    title: 'Native & Hybrid Mobile Apps',
+    description: 'Smooth and high-performance mobile experiences for Android, iOS and WebView.',
   },
   {
     id: 'uiux',
     icon: 'design',
-    title: 'Diseño UI/UX Futurista',
-    description: 'Interfaces atractivas con un enfoque en la experiencia del usuario, tendencias mas allá de lo común y 100% personalizadas.',
+    title: 'Futuristic UI/UX Design',
+    description: 'Attractive interfaces with a focus on user experience, beyond common trends and 100% customized.',
   },
   {
     id: 'ai',
     icon: 'ai',
-    title: 'Soluciones con IA',
-    description: 'Integración de inteligencia artificial para optimizar procesos y crear productos innovadores.',
+    title: 'AI Solutions',
+    description: 'Artificial intelligence integration to optimize processes and create innovative products.',
   },
 ];
 
 const serviceLinks: Record<string, string> = {
-  web: '/desarrollo-web',
-  mobile: '/aplicaciones-moviles',
-  uiux: '/diseno-ui-ux',
-  ai: '/soluciones-ia',
+  web: '/en/web-development',
+  mobile: '/en/mobile-apps',
+  uiux: '/en/ui-ux-design',
+  ai: '/en/ai-solutions',
 };
 
 const ServiceCard: React.FC<{ item: ServiceItem, isVisible: boolean }> = ({ item, isVisible }) => {
@@ -58,13 +56,12 @@ const ServiceCard: React.FC<{ item: ServiceItem, isVisible: boolean }> = ({ item
         <h3 className="text-2xl font-semibold text-brand-blue-light mb-3 mt-2">{item.title}</h3>
         <p className="text-brand-muted-text leading-relaxed">{item.description}</p>
         <div className="mt-4 text-brand-blue hover:text-brand-blue-light transition-colors font-semibold">
-          Conocer más →
+          Learn more →
         </div>
       </div>
     </Link>
   );
 };
-
 
 const ServicesSection: React.FC = () => {
   const [visibleCards, setVisibleCards] = useState<Record<string, boolean>>({});
@@ -94,13 +91,12 @@ const ServicesSection: React.FC = () => {
     };
   }, [servicesData]);
 
-
   return (
     <section id="services" className="py-20 md:py-28 bg-brand-dark">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-title">Nuestros Servicios</h2>
+        <h2 className="section-title">Our Services</h2>
         <p className="section-subtitle">
-          Transformamos ideas en realidad digital con tu propio enfoque personalizado e identidad de marca.
+          We transform ideas into digital reality with your own personalized approach and brand identity.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
           {servicesData.map((service, index) => (
