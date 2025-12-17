@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="fixed top-24 right-6 z-40">
+    <div className="hidden md:block fixed top-24 right-6 z-40">
       <Link
         href={getAlternatePath()}
         className="flex items-center gap-2 bg-brand-dark-secondary/90 backdrop-blur-sm px-4 py-2 rounded-lg border border-[#00E5FF]/30 hover:border-[#00E5FF] transition-all shadow-lg hover:shadow-glow-blue"
