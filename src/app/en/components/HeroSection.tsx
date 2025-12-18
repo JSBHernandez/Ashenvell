@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
               <span className="block text-brand-accent">form</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-brand-muted-text max-w-xl mx-auto md:mx-0 mb-10">
-              We don't build websites. We forge experiences that challenge the conventional and redefine what's possible in the digital world.
+              We don´t build websites. We forge experiences that challenge the conventional and redefine what´s possible in the digital world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link href="#portfolio" className="btn-primary text-lg px-10 py-4">
