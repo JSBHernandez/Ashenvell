@@ -1,8 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
 const HeroSection: React.FC = () => {
-  // Define la ruta a tu imagen principal para el Hero
   const heroImagePath = "/abstract31g.png";
 
   return (
@@ -18,11 +19,15 @@ const HeroSection: React.FC = () => {
           {/* Columna de Texto (Izquierda) */}
           <div className="text-center md:text-left animate-slide-in-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="block text-brand-light-text">Bienvenido a</span>
-              <span className="block text-brand-accent">Ashenvell</span>
+              <span className="block">
+                <span className="text-brand-light-text">Soluciones que </span>
+                <span className="italic bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(96,165,250,0.6)]">Evolucionan</span>
+              </span>
+              <span className="block text-brand-light-text">con nuestra Ayuda</span>
+
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-brand-muted-text max-w-xl mx-auto md:mx-0 mb-10">
-              Creamos experiencias digitales futuristas y soluciones de software que impulsan la innovación.
+              ¿Simplemente tu página? ¿O más bien deseas una solución a la medida? De cualquier manera ya tienes ventaja con Ashenvell.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link href="#portfolio" className="btn-primary text-lg px-10 py-4">
@@ -31,17 +36,16 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Columna Visual (Derecha) - Con una sola Imagen */}
+          {/* Columna Visual (Derecha) - Imagen */}
           <div className="relative h-72 md:h-[450px] lg:h-[500px] flex items-center justify-center animate-slide-in-right">
-            {/* Contenedor para la imagen */}
             <div className="w-full h-full max-w-md md:max-w-lg lg:max-w-xl mx-auto">
               <Image
                 src={heroImagePath}
                 alt="Visualización de Ashenvell"
-                width={600} 
+                width={600}
                 height={500}
                 className="object-contain w-full h-full rounded-lg shadow-xl"
-                priority 
+                priority
               />
             </div>
           </div>

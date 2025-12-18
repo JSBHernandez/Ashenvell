@@ -16,11 +16,15 @@ const HeroSection: React.FC = () => {
           {/* Text Column (Left) */}
           <div className="text-center md:text-left animate-slide-in-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-              <span className="block text-brand-light-text">Welcome to</span>
-              <span className="block text-brand-accent">Ashenvell</span>
+              <span className="block">
+                <span className="text-brand-light-text">Where </span>
+                <span className="italic bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(96,165,250,0.6)]">boldness</span>
+              </span>
+              <span className="block text-brand-light-text">Finds its digital</span>
+              <span className="block text-brand-accent">form</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-brand-muted-text max-w-xl mx-auto md:mx-0 mb-10">
-              We create futuristic digital experiences and software solutions that drive innovation.
+              We don't build websites. We forge experiences that challenge the conventional and redefine what's possible in the digital world.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link href="#portfolio" className="btn-primary text-lg px-10 py-4">
