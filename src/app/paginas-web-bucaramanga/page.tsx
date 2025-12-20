@@ -13,7 +13,6 @@ export const metadata: Metadata = {
       'en': 'https://ashenvell.com/en/web-development',
     },
   },
-  
   openGraph: {
     title: 'Páginas web en Bucaramanga • Ashenvell',
     description: 'Diseño web, e-commerce y SEO local para empresas en Bucaramanga. Cotiza hoy.',
