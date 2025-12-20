@@ -46,6 +46,14 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- SEO Landing Page - Spanish -->
+  <url>
+    <loc>https://ashenvell.com/paginas-web-bucaramanga</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
   <!-- Services - English -->
   <url>
     <loc>https://ashenvell.com/en/web-development</loc>
