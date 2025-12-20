@@ -22,11 +22,12 @@ const PortfolioSection = () => {
               <Image
                 src="/greencapture.png" 
                 alt="Green Consulting Engineering"
-                fill
+                width={800}
+                height={600}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
-                className="object-cover"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                quality={85}
+                quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -54,11 +55,12 @@ const PortfolioSection = () => {
               <Image
                 src="/leycapture.png" 
                 alt="Ley Explico"
-                fill
+                width={800}
+                height={600}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
-                className="object-cover"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                quality={85}
+                quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -86,11 +88,12 @@ const PortfolioSection = () => {
               <Image
                 src="/skycapture.png" 
                 alt="Importadora Sky"
-                fill
+                width={800}
+                height={600}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
-                className="object-cover"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                quality={85}
+                quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -118,11 +121,12 @@ const PortfolioSection = () => {
               <Image
                 src="/intracapture.png" 
                 alt="Intragod v.01"
-                fill
+                width={800}
+                height={600}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
-                className="object-cover"
+                className="w-full h-full object-cover"
                 loading="lazy"
-                quality={85}
+                quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
