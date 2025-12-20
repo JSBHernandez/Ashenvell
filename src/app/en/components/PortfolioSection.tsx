@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const PortfolioSection = () => {
   return (
@@ -18,10 +19,13 @@ const PortfolioSection = () => {
             className="block bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
             <div className="relative h-80 overflow-hidden group">
-              <img 
+              <Image
                 src="/greencapture.png" 
                 alt="Green Consulting Engineering"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -46,10 +50,13 @@ const PortfolioSection = () => {
             className="block bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
             <div className="relative h-80 overflow-hidden group">
-              <img 
+              <Image
                 src="/leycapture.png" 
                 alt="Ley Explico"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -74,10 +81,13 @@ const PortfolioSection = () => {
             className="block bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
             <div className="relative h-80 overflow-hidden group">
-              <img 
+              <Image
                 src="/skycapture.png" 
                 alt="Importadora Sky"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -102,10 +112,13 @@ const PortfolioSection = () => {
             className="block bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
             <div className="relative h-80 overflow-hidden group">
-              <img 
+              <Image
                 src="/intracapture.png" 
                 alt="Intragod v.01"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>

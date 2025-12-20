@@ -9,12 +9,16 @@ const exo2 = Exo_2({
   subsets: ["latin"],
   weight: ['300', '400', '500', '600', '700'],
   variable: "--font-exo2",
+  display: 'swap',
+  preload: true,
 });
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
   weight: ['400', '500', '700'],
   variable: "--font-roboto-mono",
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
