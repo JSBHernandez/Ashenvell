@@ -23,9 +23,10 @@ const PortfolioSection = () => {
                 src="/greencapture.png" 
                 alt="Green Consulting Engineering"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
                 className="object-cover"
                 loading="lazy"
+                quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -54,9 +55,10 @@ const PortfolioSection = () => {
                 src="/leycapture.png" 
                 alt="Ley Explico"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
                 className="object-cover"
                 loading="lazy"
+                quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -85,9 +87,10 @@ const PortfolioSection = () => {
                 src="/skycapture.png" 
                 alt="Importadora Sky"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
                 className="object-cover"
                 loading="lazy"
+                quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
@@ -116,9 +119,10 @@ const PortfolioSection = () => {
                 src="/intracapture.png" 
                 alt="Intragod v.01"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
                 className="object-cover"
                 loading="lazy"
+                quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>

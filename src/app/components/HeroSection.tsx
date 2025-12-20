@@ -44,8 +44,10 @@ const HeroSection: React.FC = () => {
                 alt="Visualización de Ashenvell"
                 width={600}
                 height={500}
+                sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, 600px"
                 className="object-contain w-full h-full rounded-lg shadow-xl"
                 priority
+                fetchPriority="high"
               />
             </div>
           </div>

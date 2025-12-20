@@ -53,6 +53,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${exo2.variable} ${robotoMono.variable} scroll-smooth`} suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://api.whatsapp.com" />
+      </head>
       <body className="bg-brand-dark text-brand-light-text antialiased selection:bg-brand-blue selection:text-white">
         <div className="flex flex-col min-h-screen">
           <DynamicNavbar />

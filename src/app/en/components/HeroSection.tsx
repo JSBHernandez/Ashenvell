@@ -39,10 +39,12 @@ const HeroSection: React.FC = () => {
               <Image
                 src={heroImagePath}
                 alt="Ashenvell Visualization"
-                width={600} 
+                width={600}
                 height={500}
+                sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, 600px"
                 className="object-contain w-full h-full rounded-lg shadow-xl"
-                priority 
+                priority
+                fetchPriority="high"
               />
             </div>
           </div>
