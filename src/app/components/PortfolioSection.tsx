@@ -44,17 +44,17 @@ const PortfolioSection = () => {
             </div>
           </a>
 
-          {/* Ley Explico */}
+          {/* Intranet Inegol */}
           <a 
-            href="https://ley-explico.vercel.app/" 
+            href="https://api.whatsapp.com/send?phone=573239007932&text=%C2%A1%20Quiero%20mi%20P%C3%A1gina%20Web%20ya%20mismo%20!%F0%9F%92%BB" 
             target="_blank" 
             rel="noopener noreferrer"
             className="block bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
             <div className="relative h-80 overflow-hidden group">
               <Image
-                src="/leycapture.png" 
-                alt="Ley Explico"
+                src="/intracapture.png" 
+                alt="Intragod v.01"
                 width={800}
                 height={600}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
@@ -62,17 +62,51 @@ const PortfolioSection = () => {
                 loading="lazy"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
             <div className="p-6">
-              <h3 className="text-2xl font-semibold text-[#60A5FA] mb-2">Ley Explico</h3>
+              <h3 className="text-2xl font-semibold text-[#60A5FA] mb-2">Intragod v.01</h3>
               <p className="text-gray-400 mb-4">
-                Plataforma educativa para explicar leyes de manera sencilla y accesible.
+                Aplicación web de modelo pago que integra múltiples funcionalidades corporativas.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="text-xs bg-gradient-to-r from-purple-700 to-purple-600 text-white px-3 py-1 rounded-full font-semibold">Next.js</span>
-                <span className="text-xs bg-gradient-to-r from-purple-700 to-purple-600 text-white px-3 py-1 rounded-full font-semibold">Tailwind.css</span>
-                <span className="text-xs bg-gradient-to-r from-purple-700 to-purple-600 text-white px-3 py-1 rounded-full font-semibold">Educación</span>
+                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Next.js</span>
+                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Intranet</span>
+                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Módulos a la medida</span>
+                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Scraping</span>
+              </div>
+            </div>
+          </a>
+
+          {/* Sky Beauty */}
+          <a 
+            href="https://skybmanga.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+          >
+            <div className="relative h-80 overflow-hidden group">
+              <Image
+                src="/beautycapture.png" 
+                alt="Sky Beauty Line"
+                width={800}
+                height={600}
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold text-[#60A5FA] mb-2">Sky Beauty Line</h3>
+              <p className="text-gray-400 mb-4">
+                Tienda digital de productos y maquinaria de estética.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-gradient-to-r from-emerald-500 to-green-400 text-white px-3 py-1 rounded-full font-semibold">Wordpress</span>
+                <span className="text-xs bg-gradient-to-r from-emerald-500 to-green-400 text-white px-3 py-1 rounded-full font-semibold">Woocommerce</span>
+                <span className="text-xs bg-gradient-to-r from-emerald-500 to-green-400 text-white px-3 py-1 rounded-full font-semibold">Bold</span>
               </div>
             </div>
           </a>
@@ -110,17 +144,17 @@ const PortfolioSection = () => {
             </div>
           </a>
 
-          {/* Intranet Inegol */}
+          {/* Ley Explico */}
           <a 
-            href="https://api.whatsapp.com/send?phone=573239007932&text=%C2%A1%20Quiero%20mi%20P%C3%A1gina%20Web%20ya%20mismo%20!%F0%9F%92%BB" 
+            href="https://ley-explico.vercel.app/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="block bg-[#161B22] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer"
           >
             <div className="relative h-80 overflow-hidden group">
               <Image
-                src="/intracapture.png" 
-                alt="Intragod v.01"
+                src="/leycapture.png" 
+                alt="Ley Explico"
                 width={800}
                 height={600}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 50vw"
@@ -128,18 +162,17 @@ const PortfolioSection = () => {
                 loading="lazy"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-orange-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </div>
             <div className="p-6">
-              <h3 className="text-2xl font-semibold text-[#60A5FA] mb-2">Intragod v.01</h3>
+              <h3 className="text-2xl font-semibold text-[#60A5FA] mb-2">Ley Explico</h3>
               <p className="text-gray-400 mb-4">
-                Aplicación web de modelo pago que integra múltiples funcionalidades corporativas.
+                Plataforma educativa para explicar leyes de manera sencilla y accesible.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Next.js</span>
-                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Intranet</span>
-                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Módulos a la medida</span>
-                <span className="text-xs bg-gradient-to-r from-orange-500 to-orange-400 text-white px-3 py-1 rounded-full font-semibold">Scraping</span>
+                <span className="text-xs bg-gradient-to-r from-purple-700 to-purple-600 text-white px-3 py-1 rounded-full font-semibold">Next.js</span>
+                <span className="text-xs bg-gradient-to-r from-purple-700 to-purple-600 text-white px-3 py-1 rounded-full font-semibold">Tailwind.css</span>
+                <span className="text-xs bg-gradient-to-r from-purple-700 to-purple-600 text-white px-3 py-1 rounded-full font-semibold">Educación</span>
               </div>
             </div>
           </a>

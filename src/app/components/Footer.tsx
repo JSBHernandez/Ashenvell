@@ -98,8 +98,8 @@ const Footer: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-gray-300 text-base font-medium">Teléfono</p>
-                  <a href="https://wa.me/573212900661" className="text-gray-400 text-base hover:text-[#00E5FF] transition-colors">
-                    +57 321 290 0661
+                  <a href="https://wa.me/573239007932" className="text-gray-400 text-base hover:text-[#00E5FF] transition-colors">
+                    +57 323 900 7932
                   </a>
                 </div>
               </li>
@@ -114,15 +114,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li>
                 <p className="text-gray-300 text-base font-medium">Lunes a Viernes:</p>
-                <p className="text-gray-400 text-base">9:00 am - 10:00 pm</p>
+                <p className="text-gray-400 text-base">9:00 am - 6:00 pm</p>
               </li>
               <li>
                 <p className="text-gray-300 text-base font-medium">Sábados:</p>
-                <p className="text-gray-400 text-base">9:00 am - 10:00 pm</p>
+                <p className="text-gray-400 text-base">9:00 am - 6:00 pm</p>
               </li>
               <li>
                 <p className="text-gray-300 text-base font-medium">Domingos:</p>
-                <p className="text-gray-400 text-base">1:00 pm - 6:00 pm</p>
+                <p className="text-gray-400 text-base">Cerrado</p>
               </li>
             </ul>
             <div className="mt-6 p-4 bg-[#161B22] rounded-lg border border-[#00E5FF]/20">
