@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Exo_2, Roboto_Mono } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { DynamicNavbar, DynamicFooter } from "./components/LayoutComponents";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
@@ -82,6 +83,7 @@ export default function RootLayout({
         </div>
         <LanguageSwitcher />
         <FloatingWhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );
