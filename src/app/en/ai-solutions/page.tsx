@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createLocalizedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createLocalizedMetadata({
   title: "AI Solutions | Ashenvell",
-  description: "Integration of artificial intelligence to optimize processes and create innovative products.",
-  keywords: "artificial intelligence, AI, machine learning, automation, chatbots, data analysis",
-};
+  description:
+    "Integration of artificial intelligence to optimize processes and create innovative products.",
+  keywords:
+    "artificial intelligence, AI, machine learning, automation, chatbots, data analysis",
+  locale: "en",
+  pathEs: "/soluciones-ia",
+  pathEn: "/en/ai-solutions",
+});
 
 export default function AISolutionsPage() {
   return (

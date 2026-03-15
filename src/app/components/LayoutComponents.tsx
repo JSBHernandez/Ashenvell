@@ -1,21 +1,20 @@
 "use client";
 
 import { usePathname } from 'next/navigation';
-import NavbarEs from './Navbar';
-import FooterEs from './Footer';
-import NavbarEn from '../en/components/Navbar';
-import FooterEn from '../en/components/Footer';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import { getLocaleFromPathname } from '@/lib/i18n';
 
 export function DynamicNavbar() {
   const pathname = usePathname();
-  const isEnglish = pathname?.startsWith('/en');
-  
-  return isEnglish ? <NavbarEn /> : <NavbarEs />;
+  const locale = getLocaleFromPathname(pathname || '/');
+
+  return <Navbar locale={locale} />;
 }
 
 export function DynamicFooter() {
   const pathname = usePathname();
-  const isEnglish = pathname?.startsWith('/en');
-  
-  return isEnglish ? <FooterEn /> : <FooterEs />;
+  const locale = getLocaleFromPathname(pathname || '/');
+
+  return <Footer locale={locale} />;
 }

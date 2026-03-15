@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { toEnglishPathname } from '@/lib/i18n';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -36,7 +37,7 @@ export function middleware(request: NextRequest) {
     if (prefersEnglish) {
       // Redirigir a la versión en inglés
       const url = request.nextUrl.clone();
-      url.pathname = `/en${pathname}`;
+      url.pathname = toEnglishPathname(pathname);
       return NextResponse.redirect(url);
     }
   }

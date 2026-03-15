@@ -6,10 +6,10 @@ import ContactSection from "./components/ContactSection";
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <ServicesSection />
-      <PortfolioSection />
-      <ContactSection />
+      <HeroSection locale="es" />
+      <ServicesSection locale="es" />
+      <PortfolioSection locale="es" />
+      <ContactSection locale="es" />
     </>
   );
 }

@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createLocalizedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Diseño UI/UX Futurista | Vondervaltz",
-  description: "Interfaces atractivas con un enfoque en la experiencia del usuario, tendencias más allá de lo común y 100% personalizadas.",
-  keywords: "diseño UI, diseño UX, interfaces, experiencia de usuario, diseño personalizado, diseño futurista",
-};
+export const metadata: Metadata = createLocalizedMetadata({
+  title: "Diseno UI/UX Futurista | Ashenvell",
+  description:
+    "Interfaces atractivas con enfoque en experiencia de usuario, tendencias fuera de lo comun y 100% personalizadas.",
+  keywords:
+    "diseno UI, diseno UX, interfaces, experiencia de usuario, diseno personalizado, diseno futurista",
+  locale: "es",
+  pathEs: "/diseno-ui-ux",
+  pathEn: "/en/ui-ux-design",
+});
 
 export default function DisenoUIUXPage() {
   return (

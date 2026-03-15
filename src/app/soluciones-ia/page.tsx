@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createLocalizedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Soluciones con IA | Vondervaltz",
-  description: "Integración de inteligencia artificial para optimizar procesos y crear productos innovadores.",
-  keywords: "inteligencia artificial, IA, machine learning, automatización, chatbots, análisis de datos",
-};
+export const metadata: Metadata = createLocalizedMetadata({
+  title: "Soluciones con IA | Ashenvell",
+  description:
+    "Integracion de inteligencia artificial para optimizar procesos y crear productos innovadores.",
+  keywords:
+    "inteligencia artificial, IA, machine learning, automatizacion, chatbots, analisis de datos",
+  locale: "es",
+  pathEs: "/soluciones-ia",
+  pathEn: "/en/ai-solutions",
+});
 
 export default function SolucionesIAPage() {
   return (

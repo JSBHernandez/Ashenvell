@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       to: 'sebastianbhforjobs@gmail.com', // Tu correo donde recibirás los mensajes
       subject: `Nuevo mensaje de contacto de ${name}`,
       html: `
-        <h2>Nuevo mensaje de contacto desde Vondervaltz</h2>
+        <h2>Nuevo mensaje de contacto desde Ashenvell</h2>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email del cliente:</strong> ${email}</p>
         <p><strong>Mensaje:</strong></p>
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
         <p style="color: gray; font-size: 12px;">Este mensaje fue enviado desde el formulario de contacto de tu sitio web.</p>
       `,
       text: `
-        Nuevo mensaje de contacto desde Vondervaltz
+        Nuevo mensaje de contacto desde Ashenvell
         
         Nombre: ${name}
         Email del cliente: ${email}

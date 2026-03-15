@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createLocalizedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Desarrollo Web Avanzado | Vondervaltz",
-  description: "Aplicaciones web modernas, rápidas y escalables con las últimas tecnologías y frameworks como Next.js, React, Node.js, HTML, CSS, JavaScript y WordPress.",
-  keywords: "desarrollo web, Next.js, React, Node.js, WordPress, HTML, CSS, JavaScript, aplicaciones web",
-};
+export const metadata: Metadata = createLocalizedMetadata({
+  title: "Desarrollo Web Avanzado | Ashenvell",
+  description:
+    "Aplicaciones web modernas, rapidas y escalables con tecnologias como Next.js, React, Node.js, HTML, CSS, JavaScript y WordPress.",
+  keywords:
+    "desarrollo web, Next.js, React, Node.js, WordPress, HTML, CSS, JavaScript, aplicaciones web",
+  locale: "es",
+  pathEs: "/desarrollo-web",
+  pathEn: "/en/web-development",
+});
 
 export default function DesarrolloWebPage() {
   return (

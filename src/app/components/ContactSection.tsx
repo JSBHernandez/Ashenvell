@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { SocialLink } from '@/types';
+import type { Locale } from '@/lib/i18n';
 
 // Iconos SVG para redes sociales
 const GithubIcon = () => (
@@ -20,10 +21,47 @@ const socialLinks: SocialLink[] = [
   { name: 'LinkedIn', icon: <LinkedinIcon />, url: 'https://www.linkedin.com/in/juan-sebastian-becerra-hernandez-116752250/' }, // Reemplaza con tu URL
 ];
 
-const ContactSection: React.FC = () => {
+type ContactSectionProps = {
+  locale?: Locale;
+};
+
+const ContactSection: React.FC<ContactSectionProps> = ({ locale = 'es' }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const isEnglish = locale === 'en';
+
+  const text = isEnglish
+    ? {
+        genericError: 'There was an error sending the message. Please try again later.',
+        fallbackSuccess: 'Message sent successfully! We will contact you soon.',
+        title: "Let's Talk About Your Project",
+        subtitle: 'Have an idea or need help with a project? Fill out the form or contact us through our social media.',
+        fullName: 'Full Name',
+        fullNamePlaceholder: 'Your Name',
+        emailPlaceholder: 'your@email.com',
+        message: 'Message',
+        messagePlaceholder: 'Tell us about your project...',
+        sending: 'Sending...',
+        send: 'Send Message',
+        socialTitle: 'Or find us at:',
+        directEmail: 'Direct email:',
+      }
+    : {
+        genericError: 'Hubo un error al enviar el mensaje. Intentalo de nuevo mas tarde.',
+        fallbackSuccess: 'Mensaje enviado con exito! Nos pondremos en contacto pronto.',
+        title: 'Hablemos de tu Proyecto',
+        subtitle: 'Tienes una idea o necesitas ayuda con un proyecto? Completa el formulario o contactanos por nuestras redes.',
+        fullName: 'Nombre Completo',
+        fullNamePlaceholder: 'Tu Nombre',
+        emailPlaceholder: 'tu@email.com',
+        message: 'Mensaje',
+        messagePlaceholder: 'Cuentanos sobre tu proyecto...',
+        sending: 'Enviando...',
+        send: 'Enviar Mensaje',
+        socialTitle: 'O encuentranos en:',
+        directEmail: 'Email directo:',
+      };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,33 +82,34 @@ const ContactSection: React.FC = () => {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Error al enviar el mensaje.');
+        throw new Error(result.error || text.genericError);
       }
 
-      setSubmitMessage(result.message || '¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');
+      setSubmitMessage(result.message || text.fallbackSuccess);
       setFormData({ name: '', email: '', message: '' }); // Limpiar formulario
 
     } catch (error) {
       console.error(error);
-      setSubmitMessage('Hubo un error al enviar el mensaje. Inténtalo de nuevo más tarde.');
+      setSubmitMessage(text.genericError);
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const isErrorMessage = /error|hubo un error/i.test(submitMessage);
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-brand-dark">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-title">Hablemos de tu Proyecto</h2>
+        <h2 className="section-title">{text.title}</h2>
         <p className="section-subtitle">
-          ¿Tienes una idea o necesitas ayuda con un proyecto? Completa el formulario o contáctanos por nuestras redes.
+          {text.subtitle}
         </p>
 
         <div className="max-w-3xl mx-auto bg-brand-dark-secondary p-8 md:p-12 rounded-xl shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-brand-blue-light mb-1">Nombre Completo</label>
+              <label htmlFor="name" className="block text-sm font-medium text-brand-blue-light mb-1">{text.fullName}</label>
               <input
                 type="text"
                 name="name"
@@ -79,7 +118,7 @@ const ContactSection: React.FC = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-brand-light-text focus:ring-brand-blue focus:border-brand-blue transition-colors"
-                placeholder="Tu Nombre"
+                placeholder={text.fullNamePlaceholder}
               />
             </div>
             <div>
@@ -92,11 +131,11 @@ const ContactSection: React.FC = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-brand-light-text focus:ring-brand-blue focus:border-brand-blue transition-colors"
-                placeholder="tu@email.com"
+                placeholder={text.emailPlaceholder}
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-brand-blue-light mb-1">Mensaje</label>
+              <label htmlFor="message" className="block text-sm font-medium text-brand-blue-light mb-1">{text.message}</label>
               <textarea
                 name="message"
                 id="message"
@@ -105,7 +144,7 @@ const ContactSection: React.FC = () => {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-brand-light-text focus:ring-brand-blue focus:border-brand-blue transition-colors"
-                placeholder="Cuéntanos sobre tu proyecto..."
+                placeholder={text.messagePlaceholder}
               />
             </div>
             <div>
@@ -114,18 +153,18 @@ const ContactSection: React.FC = () => {
                 disabled={isSubmitting}
                 className="btn-primary w-full disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                {isSubmitting ? text.sending : text.send}
               </button>
             </div>
             {submitMessage && (
-              <p className={`mt-4 text-center text-sm ${submitMessage.includes('error') ? 'text-red-400' : 'text-green-400'}`}>
+              <p className={`mt-4 text-center text-sm ${isErrorMessage ? 'text-red-400' : 'text-green-400'}`}>
                 {submitMessage}
               </p>
             )}
           </form>
 
           <div className="mt-12 pt-8 border-t border-gray-700 text-center">
-            <h3 className="text-xl font-semibold text-brand-blue-light mb-4">O encuéntranos en:</h3>
+            <h3 className="text-xl font-semibold text-brand-blue-light mb-4">{text.socialTitle}</h3>
             <div className="flex justify-center space-x-6">
               {socialLinks.map((link) => (
                 <a
@@ -133,7 +172,7 @@ const ContactSection: React.FC = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Ashenvell en ${link.name}`}
+                  aria-label={isEnglish ? `Ashenvell on ${link.name}` : `Ashenvell en ${link.name}`}
                   className="text-brand-muted-text hover:text-brand-accent transition-colors"
                 >
                   <span className="sr-only">{link.name}</span>
@@ -142,7 +181,7 @@ const ContactSection: React.FC = () => {
               ))}
             </div>
             <p className="mt-6 text-brand-muted-text">
-              Email directo: <a href="mailto:sebastianbhforjobs@gmail.com" className="text-brand-blue hover:underline">sebastianbhforjobs@gmail.com</a>
+              {text.directEmail} <a href="mailto:sebastianbhforjobs@gmail.com" className="text-brand-blue hover:underline">sebastianbhforjobs@gmail.com</a>
             </p>
           </div>
         </div>

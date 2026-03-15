@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { SocialLink } from '@/types';
+import type { Locale } from '@/lib/i18n';
 
-// Iconos SVG
 const GithubIconMini = () => (
   <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6" aria-hidden="true">
     <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
@@ -38,18 +38,23 @@ const footerSocialLinks: SocialLink[] = [
   { name: 'LinkedIn', icon: <LinkedinIconMini />, url: 'https://www.linkedin.com/in/juan-sebastian-becerra-hernandez-116752250/' },
 ];
 
-const Footer: React.FC = () => {
+type FooterProps = {
+  locale?: Locale;
+};
+
+const Footer: React.FC<FooterProps> = ({ locale = 'es' }) => {
   const currentYear = new Date().getFullYear();
+  const isEnglish = locale === 'en';
+  const homeHref = isEnglish ? '/en' : '/';
+  const sectionHrefPrefix = isEnglish ? '/en' : '';
 
   return (
     <footer className="bg-gradient-to-b from-[#0D1117] to-[#0a0e13] border-t border-[#00E5FF]/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
-          {/* Columna 1: Logo e Información de la Empresa */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
-              <Link href="/" className="inline-block">
+              <Link href={homeHref} className="inline-block">
                 <img
                   src="/alogo.png"
                   alt="Ashenvell Logo"
@@ -59,17 +64,20 @@ const Footer: React.FC = () => {
               <h3 className="text-xl font-bold text-[#60A5FA] border-b border-[#00E5FF]/30 pb-2 flex-1">Ashenvell</h3>
             </div>
             <p className="text-gray-400 text-base leading-relaxed mb-4">
-              Transformamos ideas en realidad digital. Desarrollo web, móvil y soluciones tecnológicas innovadoras con IA.
+              {isEnglish
+                ? 'We transform ideas into digital reality. Web, mobile development and innovative technological solutions with AI.'
+                : 'Transformamos ideas en realidad digital. Desarrollo web, movil y soluciones tecnologicas innovadoras con IA.'}
             </p>
             <p className="text-gray-500 text-sm italic">
-              Más de 2 años creando experiencias digitales a la medida.
+              {isEnglish
+                ? 'Over 2 years creating customized digital experiences.'
+                : 'Mas de 2 anos creando experiencias digitales a la medida.'}
             </p>
           </div>
 
-          {/* Columna 2: Información de Contacto */}
           <div>
             <h3 className="text-xl font-bold text-[#60A5FA] mb-6 border-b border-[#00E5FF]/30 pb-2">
-              Información de Contacto
+              {isEnglish ? 'Contact Information' : 'Informacion de Contacto'}
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -77,7 +85,7 @@ const Footer: React.FC = () => {
                   <LocationIcon />
                 </div>
                 <div>
-                  <p className="text-gray-300 text-base font-medium">Ubicación</p>
+                  <p className="text-gray-300 text-base font-medium">{isEnglish ? 'Location' : 'Ubicacion'}</p>
                   <p className="text-gray-400 text-base">Bucaramanga, Colombia</p>
                 </div>
               </li>
@@ -97,7 +105,7 @@ const Footer: React.FC = () => {
                   <PhoneIcon />
                 </div>
                 <div>
-                  <p className="text-gray-300 text-base font-medium">Teléfono</p>
+                  <p className="text-gray-300 text-base font-medium">{isEnglish ? 'Phone' : 'Telefono'}</p>
                   <a href="https://wa.me/573239007932" className="text-gray-400 text-base hover:text-[#00E5FF] transition-colors">
                     +57 323 900 7932
                   </a>
@@ -106,79 +114,79 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Columna 3: Horarios de Atención */}
           <div>
             <h3 className="text-xl font-bold text-[#60A5FA] mb-6 border-b border-[#00E5FF]/30 pb-2">
-              Horarios de Atención
+              {isEnglish ? 'Business Hours' : 'Horarios de Atencion'}
             </h3>
             <ul className="space-y-3">
               <li>
-                <p className="text-gray-300 text-base font-medium">Lunes a Viernes:</p>
-                <p className="text-gray-400 text-base">9:00 am - 6:00 pm</p>
+                <p className="text-gray-300 text-base font-medium">
+                  {isEnglish ? 'Monday to Friday:' : 'Lunes a Viernes:'}
+                </p>
+                <p className="text-gray-400 text-base">{isEnglish ? '9:00 - 18:00' : '9:00 am - 6:00 pm'}</p>
               </li>
               <li>
-                <p className="text-gray-300 text-base font-medium">Sábados:</p>
-                <p className="text-gray-400 text-base">9:00 am - 6:00 pm</p>
+                <p className="text-gray-300 text-base font-medium">{isEnglish ? 'Saturdays:' : 'Sabados:'}</p>
+                <p className="text-gray-400 text-base">{isEnglish ? '9:00 - 18:00' : '9:00 am - 6:00 pm'}</p>
               </li>
               <li>
-                <p className="text-gray-300 text-base font-medium">Domingos:</p>
-                <p className="text-gray-400 text-base">Cerrado</p>
+                <p className="text-gray-300 text-base font-medium">{isEnglish ? 'Sundays:' : 'Domingos:'}</p>
+                <p className="text-gray-400 text-base">{isEnglish ? 'Closed' : 'Cerrado'}</p>
               </li>
             </ul>
             <div className="mt-6 p-4 bg-[#161B22] rounded-lg border border-[#00E5FF]/20">
               <p className="text-sm text-gray-400">
-                ⚡ Respuesta garantizada en menos de 24 horas
+                {isEnglish
+                  ? 'Guaranteed response in less than 24 hours'
+                  : 'Respuesta garantizada en menos de 24 horas'}
               </p>
             </div>
           </div>
 
-          {/* Columna 4: Navegación */}
           <div>
             <h3 className="text-xl font-bold text-[#60A5FA] mb-6 border-b border-[#00E5FF]/30 pb-2">
-              Navegación
+              {isEnglish ? 'Navigation' : 'Navegacion'}
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/#hero" className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
-                  <span className="text-[#00E5FF]">▸</span> Inicio
+                <Link href={`${sectionHrefPrefix}#hero`} className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
+                  <span className="text-[#00E5FF]">▸</span> {isEnglish ? 'Home' : 'Inicio'}
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
-                  <span className="text-[#00E5FF]">▸</span> Servicios
+                <Link href={`${sectionHrefPrefix}#services`} className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
+                  <span className="text-[#00E5FF]">▸</span> {isEnglish ? 'Services' : 'Servicios'}
                 </Link>
               </li>
               <li>
-                <Link href="/#portfolio" className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
-                  <span className="text-[#00E5FF]">▸</span> Portafolio
+                <Link href={`${sectionHrefPrefix}#portfolio`} className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
+                  <span className="text-[#00E5FF]">▸</span> {isEnglish ? 'Portfolio' : 'Portafolio'}
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
-                  <span className="text-[#00E5FF]">▸</span> Contacto
+                <Link href={`${sectionHrefPrefix}#contact`} className="text-gray-400 hover:text-[#00E5FF] transition-colors text-base flex items-center gap-2">
+                  <span className="text-[#00E5FF]">▸</span> {isEnglish ? 'Contact' : 'Contacto'}
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Separador */}
         <div className="border-t border-[#00E5FF]/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            {/* Copyright y créditos */}
             <div className="text-center md:text-left">
               <p className="text-sm text-gray-400">
-                © {currentYear} <span className="text-[#00E5FF] font-semibold">Ashenvell</span>. Todos los derechos reservados.
+                © {currentYear} <span className="text-[#00E5FF] font-semibold">Ashenvell</span>. {isEnglish ? 'All rights reserved.' : 'Todos los derechos reservados.'}
               </p>
               <p className="text-xs text-gray-500 mt-1">
-                Diseñado y desarrollado claramente por Ashenvell
+                {isEnglish
+                  ? 'Designed and developed clearly by Ashenvell'
+                  : 'Disenado y desarrollado claramente por Ashenvell'}
               </p>
             </div>
 
-            {/* Redes Sociales */}
             <div className="flex items-center gap-6">
-              <p className="text-sm text-gray-400 font-medium">Síguenos:</p>
+              <p className="text-sm text-gray-400 font-medium">{isEnglish ? 'Follow us:' : 'Siguenos:'}</p>
               <div className="flex gap-4">
                 {footerSocialLinks.map((link) => (
                   <a
@@ -186,7 +194,7 @@ const Footer: React.FC = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Ashenvell en ${link.name}`}
+                    aria-label={isEnglish ? `Ashenvell on ${link.name}` : `Ashenvell en ${link.name}`}
                     className="text-gray-400 hover:text-[#00E5FF] transition-all duration-300 hover:scale-110"
                   >
                     <span className="sr-only">{link.name}</span>

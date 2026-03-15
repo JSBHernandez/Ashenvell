@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createLocalizedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Aplicaciones Móviles | Vondervaltz",
-  description: "Experiencias móviles fluidas y de alto rendimiento para Android y WebView. Desarrollo de apps nativas e híbridas.",
-  keywords: "aplicaciones móviles, desarrollo móvil, Android, WebView, apps nativas, apps híbridas",
-};
+export const metadata: Metadata = createLocalizedMetadata({
+  title: "Aplicaciones Moviles | Ashenvell",
+  description:
+    "Experiencias moviles fluidas y de alto rendimiento para Android y WebView. Desarrollo de apps nativas e hibridas.",
+  keywords:
+    "aplicaciones moviles, desarrollo movil, Android, WebView, apps nativas, apps hibridas",
+  locale: "es",
+  pathEs: "/aplicaciones-moviles",
+  pathEn: "/en/mobile-apps",
+});
 
 export default function AplicacionesMovilesPage() {
   return (

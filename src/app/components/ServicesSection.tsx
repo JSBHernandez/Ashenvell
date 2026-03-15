@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import type { ServiceItem } from '@/types';
+import type { Locale } from '@/lib/i18n';
 
 // Iconos específicos para cada servicio
 const WebDevIcon = () => (
@@ -30,45 +31,30 @@ const AIIcon = () => (
 );
 
 
-const servicesData: ServiceItem[] = [
-  {
-    id: 'web',
-    icon: 'code', 
-    title: 'Desarrollo Web Avanzado',
-    description: 'Aplicaciones web modernas, rápidas y escalables con las últimas tecnologías y frameworks (Next.js, React, Node.js).',
-  },
-  {
-    id: 'mobile',
-    icon: 'mobile',
-    title: 'Aplicaciones Móviles Nativas e Híbridas',
-    description: 'Experiencias móviles fluidas y de alto rendimiento Android, IOS y WebView.',
-  },
-  {
-    id: 'uiux',
-    icon: 'design',
-    title: 'Diseño UI/UX Futurista',
-    description: 'Interfaces atractivas con un enfoque en la experiencia del usuario, tendencias mas allá de lo común y 100% personalizadas.',
-  },
-  {
-    id: 'ai',
-    icon: 'ai',
-    title: 'Soluciones con IA',
-    description: 'Integración de inteligencia artificial para optimizar procesos y crear productos innovadores.',
-  },
-];
-
-const serviceLinks: Record<string, string> = {
+const serviceLinksEs: Record<string, string> = {
   web: '/desarrollo-web',
   mobile: '/aplicaciones-moviles',
   uiux: '/diseno-ui-ux',
   ai: '/soluciones-ia',
 };
 
-const ServiceCard: React.FC<{ item: ServiceItem, isVisible: boolean }> = ({ item, isVisible }) => {
+const serviceLinksEn: Record<string, string> = {
+  web: '/en/web-development',
+  mobile: '/en/mobile-apps',
+  uiux: '/en/ui-ux-design',
+  ai: '/en/ai-solutions',
+};
+
+const ServiceCard: React.FC<{
+  item: ServiceItem;
+  isVisible: boolean;
+  href: string;
+  ctaLabel: string;
+}> = ({ item, isVisible, href, ctaLabel }) => {
   const IconComponent = item.id === 'web' ? WebDevIcon : item.id === 'mobile' ? MobileIcon : item.id === 'uiux' ? DesignIcon : AIIcon;
   
   return (
-    <Link href={serviceLinks[item.id]} className="block">
+    <Link href={href} className="block">
       <div
         className={`bg-brand-dark-secondary p-8 rounded-xl shadow-xl hover:shadow-glow-blue transition-all duration-500 transform hover:-translate-y-2 cursor-pointer ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
       >
@@ -78,7 +64,7 @@ const ServiceCard: React.FC<{ item: ServiceItem, isVisible: boolean }> = ({ item
         <h3 className="text-2xl font-semibold text-brand-blue-light mb-3 mt-2">{item.title}</h3>
         <p className="text-brand-muted-text leading-relaxed">{item.description}</p>
         <div className="mt-4 text-brand-blue hover:text-brand-blue-light transition-colors font-semibold">
-          Conocer más →
+          {ctaLabel} →
         </div>
       </div>
     </Link>
@@ -86,11 +72,74 @@ const ServiceCard: React.FC<{ item: ServiceItem, isVisible: boolean }> = ({ item
 };
 
 
-const ServicesSection: React.FC = () => {
+type ServicesSectionProps = {
+  locale?: Locale;
+};
+
+const ServicesSection: React.FC<ServicesSectionProps> = ({ locale = 'es' }) => {
   const [visibleCards, setVisibleCards] = useState<Record<string, boolean>>({});
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isEnglish = locale === 'en';
+
+  const servicesData: ServiceItem[] = isEnglish
+    ? [
+        {
+          id: 'web',
+          icon: 'code',
+          title: 'Advanced Web Development',
+          description: 'Modern, fast and scalable web applications with the latest technologies and frameworks (Next.js, React, Node.js).',
+        },
+        {
+          id: 'mobile',
+          icon: 'mobile',
+          title: 'Native & Hybrid Mobile Apps',
+          description: 'Smooth and high-performance mobile experiences for Android, iOS and WebView.',
+        },
+        {
+          id: 'uiux',
+          icon: 'design',
+          title: 'Futuristic UI/UX Design',
+          description: 'Attractive interfaces with a focus on user experience, beyond common trends and 100% customized.',
+        },
+        {
+          id: 'ai',
+          icon: 'ai',
+          title: 'AI Solutions',
+          description: 'Artificial intelligence integration to optimize processes and create innovative products.',
+        },
+      ]
+    : [
+        {
+          id: 'web',
+          icon: 'code',
+          title: 'Desarrollo Web Avanzado',
+          description: 'Aplicaciones web modernas, rapidas y escalables con las ultimas tecnologias y frameworks (Next.js, React, Node.js).',
+        },
+        {
+          id: 'mobile',
+          icon: 'mobile',
+          title: 'Aplicaciones Moviles Nativas e Hibridas',
+          description: 'Experiencias moviles fluidas y de alto rendimiento Android, iOS y WebView.',
+        },
+        {
+          id: 'uiux',
+          icon: 'design',
+          title: 'Diseno UI/UX Futurista',
+          description: 'Interfaces atractivas con un enfoque en la experiencia del usuario, tendencias mas alla de lo comun y 100% personalizadas.',
+        },
+        {
+          id: 'ai',
+          icon: 'ai',
+          title: 'Soluciones con IA',
+          description: 'Integracion de inteligencia artificial para optimizar procesos y crear productos innovadores.',
+        },
+      ];
+
+  const serviceLinks = isEnglish ? serviceLinksEn : serviceLinksEs;
 
   useEffect(() => {
+    const currentRefs = cardRefs.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -103,29 +152,36 @@ const ServicesSection: React.FC = () => {
       { threshold: 0.1 } 
     );
 
-    cardRefs.current.forEach((ref) => {
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      cardRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, [servicesData]);
+  }, []);
 
 
   return (
     <section id="services" className="py-20 md:py-28 bg-brand-dark">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-title">Nuestros Servicios</h2>
+        <h2 className="section-title">{isEnglish ? 'Our Services' : 'Nuestros Servicios'}</h2>
         <p className="section-subtitle">
-          Transformamos ideas en realidad digital con tu propio enfoque personalizado e identidad de marca.
+          {isEnglish
+            ? 'We transform ideas into digital reality with your own personalized approach and brand identity.'
+            : 'Transformamos ideas en realidad digital con tu propio enfoque personalizado e identidad de marca.'}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
           {servicesData.map((service, index) => (
             <div key={service.id} id={`service-${service.id}`} ref={el => { cardRefs.current[index] = el; }}>
-              <ServiceCard item={service} isVisible={!!visibleCards[`service-${service.id}`]} />
+              <ServiceCard
+                item={service}
+                href={serviceLinks[service.id]}
+                ctaLabel={isEnglish ? 'Learn more' : 'Conocer mas'}
+                isVisible={!!visibleCards[`service-${service.id}`]}
+              />
             </div>
           ))}
         </div>

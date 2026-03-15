@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createLocalizedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createLocalizedMetadata({
   title: "Mobile Applications | Ashenvell",
-  description: "Smooth and high-performance mobile experiences for Android and WebView. Development of native and hybrid apps.",
-  keywords: "mobile applications, mobile development, Android, WebView, native apps, hybrid apps",
-};
+  description:
+    "Smooth and high-performance mobile experiences for Android and WebView. Development of native and hybrid apps.",
+  keywords:
+    "mobile applications, mobile development, Android, WebView, native apps, hybrid apps",
+  locale: "en",
+  pathEs: "/aplicaciones-moviles",
+  pathEn: "/en/mobile-apps",
+});
 
 export default function MobileAppsPage() {
   return (

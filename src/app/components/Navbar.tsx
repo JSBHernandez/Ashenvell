@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import type { NavItem } from "@/types";
+import type { Locale } from "@/lib/i18n";
 
 const MenuIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -17,15 +18,21 @@ const CloseIcon = () => (
 );
 
 
-const Navbar: React.FC = () => {
+type NavbarProps = {
+  locale?: Locale;
+};
+
+const Navbar: React.FC<NavbarProps> = ({ locale = "es" }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isEnglish = locale === "en";
+  const homeHref = isEnglish ? "/en" : "/";
 
   const navItems: NavItem[] = [
-    { label: "Inicio", href: "#hero" },
-    { label: "Servicios", href: "#services" },
-    { label: "Portafolio", href: "#portfolio" },
-    { label: "Contacto", href: "#contact" },
+    { label: isEnglish ? "Home" : "Inicio", href: "#hero" },
+    { label: isEnglish ? "Services" : "Servicios", href: "#services" },
+    { label: isEnglish ? "Portfolio" : "Portafolio", href: "#portfolio" },
+    { label: isEnglish ? "Contact" : "Contacto", href: "#contact" },
   ];
 
   useEffect(() => {
@@ -41,7 +48,7 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center h-12">
+          <Link href={homeHref} className="flex items-center h-12">
             <img
               src="/alogo.png"
               alt="Ashenvell Logo"
@@ -67,7 +74,7 @@ const Navbar: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-brand-light-text hover:text-brand-blue-light focus:outline-none p-2"
-              aria-label="Abrir menú"
+              aria-label={isEnglish ? "Open menu" : "Abrir menu"}
             >
               {isOpen ? <CloseIcon /> : <MenuIcon />}
             </button>

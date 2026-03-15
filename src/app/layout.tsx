@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { Exo_2, Roboto_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 import { DynamicNavbar, DynamicFooter } from "./components/LayoutComponents";
 import FloatingWhatsAppButton from "./components/FloatingWhatsAppButton";
 import LanguageSwitcher from "./components/LanguageSwitcher";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const exo2 = Exo_2({
   subsets: ["latin"],
@@ -24,9 +27,19 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ashenvell | Innovación y Desarrollo Digital",
-  description: "Ashenvell - ¿Escalar tecnológicamente? Servicios de desarrollo web, móvil, inteligencia artificial e IA.",
-  keywords: "desarrollo web, desarrollo móvil, Next.js, TypeScript, Tailwind CSS, Ashenvell, software, tecnología, portafolio",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Ashenvell | Innovacion y Desarrollo Digital",
+    template: `%s | ${SITE_NAME}`,
+  },
+  description:
+    "Ashenvell crea experiencias digitales de alto impacto: desarrollo web, apps moviles, diseno UI/UX y soluciones con inteligencia artificial.",
+  keywords:
+    "desarrollo web, desarrollo movil, diseno ui ux, inteligencia artificial, software a la medida, Ashenvell, Bucaramanga",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   icons: {
     icon: [
       { url: '/alogo.png' },
@@ -36,15 +49,47 @@ export const metadata: Metadata = {
     apple: '/alogo.png',
   },
   alternates: {
-    canonical: 'https://ashenvell.com',
+    canonical: '/',
     languages: {
-      'es': 'https://ashenvell.com',
-      'en': 'https://ashenvell.com/en',
+      es: '/',
+      en: '/en',
     },
   },
   openGraph: {
+    title: "Ashenvell | Innovacion y Desarrollo Digital",
+    description:
+      "Desarrollo web, apps moviles, UI/UX e IA para marcas que quieren crecer con tecnologia.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    type: 'website',
     locale: 'es_ES',
-    alternateLocale: 'en_US',
+    alternateLocale: ['en_US'],
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE,
+        width: 512,
+        height: 512,
+        alt: `${SITE_NAME} logo`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ashenvell | Innovacion y Desarrollo Digital',
+    description:
+      'Desarrollo web, apps moviles, UI/UX e IA para negocios que quieren acelerar su crecimiento.',
+    images: [DEFAULT_OG_IMAGE],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 
@@ -53,25 +98,61 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: ['es', 'en'],
+  };
+
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/alogo.png`,
+    sameAs: [
+      'https://github.com/JSBHernandez',
+      'https://www.linkedin.com/in/juan-sebastian-becerra-hernandez-116752250/',
+    ],
+  };
+
   return (
     <html lang="es" className={`${exo2.variable} ${robotoMono.variable} scroll-smooth`} suppressHydrationWarning>
       <body className="bg-brand-dark text-brand-light-text antialiased selection:bg-brand-blue selection:text-white">
-        {/* Google Analytics */}
+        {GA_ID && (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}', { anonymize_ip: true });
+                `,
+              }}
+            />
+          </>
+        )}
+
         <Script
+          id="website-jsonld"
+          type="application/ld+json"
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-CGNG3DE1EJ"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <Script
-          id="google-analytics"
+          id="organization-jsonld"
+          type="application/ld+json"
           strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-CGNG3DE1EJ');
-            `,
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         
         <div className="flex flex-col min-h-screen">
