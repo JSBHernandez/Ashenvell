@@ -181,7 +181,7 @@ const Footer: React.FC<FooterProps> = ({ locale = 'es' }) => {
               <p className="text-xs text-gray-500 mt-1">
                 {isEnglish
                   ? 'Designed and developed clearly by Ashenvell'
-                  : 'Disenado y desarrollado claramente por Ashenvell'}
+                  : 'Diseñado y desarrollado claramente por Ashenvell'}
               </p>
             </div>
 
