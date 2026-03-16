@@ -84,6 +84,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ locale = 'es' }) => {
   const servicesData: ServiceItem[] = isEnglish
     ? [
         {
+          id: 'ai',
+          icon: 'ai',
+          title: 'AI Solutions',
+          description: 'AI Workflows and Agents to optimize processes and automate tasks.',
+        },
+        {
           id: 'web',
           icon: 'code',
           title: 'Advanced Web Development',
@@ -98,22 +104,22 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ locale = 'es' }) => {
         {
           id: 'uiux',
           icon: 'design',
-          title: 'Futuristic UI/UX Design',
+          title: 'Non-conventional UI/UX Design',
           description: 'Attractive interfaces with a focus on user experience, beyond common trends and 100% customized.',
-        },
+        }
+      ]
+    : [
         {
           id: 'ai',
           icon: 'ai',
-          title: 'AI Solutions',
-          description: 'Artificial intelligence integration to optimize processes and create innovative products.',
+          title: 'Soluciones con IA',
+          description: 'Integracion de Flujos y Agentes IA para optimizar procesos y automatizar cualquier tarea.',
         },
-      ]
-    : [
         {
           id: 'web',
           icon: 'code',
           title: 'Desarrollo Web Avanzado',
-          description: 'Aplicaciones web modernas, rapidas y escalables con las ultimas tecnologias y frameworks (Next.js, React, Node.js).',
+          description: 'Aplicaciones Web modernas, rapidas y escalables con las ultimas tecnologias y frameworks (Next.js, React, Node.js).',
         },
         {
           id: 'mobile',
@@ -124,15 +130,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ locale = 'es' }) => {
         {
           id: 'uiux',
           icon: 'design',
-          title: 'Diseno UI/UX Futurista',
+          title: 'Diseno UI/UX no convencional',
           description: 'Interfaces atractivas con un enfoque en la experiencia del usuario, tendencias mas alla de lo comun y 100% personalizadas.',
-        },
-        {
-          id: 'ai',
-          icon: 'ai',
-          title: 'Soluciones con IA',
-          description: 'Integracion de inteligencia artificial para optimizar procesos y crear productos innovadores.',
-        },
+        }
       ];
 
   const serviceLinks = isEnglish ? serviceLinksEn : serviceLinksEs;

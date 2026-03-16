@@ -71,7 +71,7 @@ const Footer: React.FC<FooterProps> = ({ locale = 'es' }) => {
             <p className="text-gray-500 text-sm italic">
               {isEnglish
                 ? 'Over 2 years creating customized digital experiences.'
-                : 'Mas de 2 anos creando experiencias digitales a la medida.'}
+                : 'Mas de 2 años creando experiencias digitales a la medida.'}
             </p>
           </div>
 
@@ -86,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ locale = 'es' }) => {
                 </div>
                 <div>
                   <p className="text-gray-300 text-base font-medium">{isEnglish ? 'Location' : 'Ubicacion'}</p>
-                  <p className="text-gray-400 text-base">Bucaramanga, Colombia</p>
+                  <p className="text-gray-400 text-base">Colombia</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -123,11 +123,11 @@ const Footer: React.FC<FooterProps> = ({ locale = 'es' }) => {
                 <p className="text-gray-300 text-base font-medium">
                   {isEnglish ? 'Monday to Friday:' : 'Lunes a Viernes:'}
                 </p>
-                <p className="text-gray-400 text-base">{isEnglish ? '9:00 - 18:00' : '9:00 am - 6:00 pm'}</p>
+                <p className="text-gray-400 text-base">{isEnglish ? '10:00 - 22:00' : '10:00 am - 10:00 pm'}</p>
               </li>
               <li>
                 <p className="text-gray-300 text-base font-medium">{isEnglish ? 'Saturdays:' : 'Sabados:'}</p>
-                <p className="text-gray-400 text-base">{isEnglish ? '9:00 - 18:00' : '9:00 am - 6:00 pm'}</p>
+                <p className="text-gray-400 text-base">{isEnglish ? '10:00 - 22:00' : '10:00 am - 10:00 pm'}</p>
               </li>
               <li>
                 <p className="text-gray-300 text-base font-medium">{isEnglish ? 'Sundays:' : 'Domingos:'}</p>

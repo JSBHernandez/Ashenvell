@@ -33,7 +33,7 @@ const portfolioBase: Array<Omit<PortfolioItem, 'title' | 'description' | 'alt'>>
     image: '/beautycapture.png',
     href: 'https://skybmanga.com/',
     tags: ['Wordpress', 'Woocommerce', 'Bold'],
-    gradient: 'from-emerald-500 to-green-400',
+    gradient: 'from-blue-700 to-blue-600',
   },
   {
     image: '/skycapture.png',
@@ -62,9 +62,9 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ locale = 'es' }) =>
         },
         {
           ...portfolioBase[1],
-          title: 'Intragod v.01',
+          title: 'Modular Project v.01',
           description: 'Web application with a payment model that integrates multiple corporate functionalities.',
-          alt: 'Intragod v.01',
+          alt: 'Modular Project v.01',
         },
         {
           ...portfolioBase[2],
@@ -94,9 +94,9 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ locale = 'es' }) =>
         },
         {
           ...portfolioBase[1],
-          title: 'Intragod v.01',
+          title: 'Modular Project v.01',
           description: 'Aplicacion web de modelo pago que integra multiples funcionalidades corporativas.',
-          alt: 'Intragod v.01',
+          alt: 'Modular Project v.01',
         },
         {
           ...portfolioBase[2],
