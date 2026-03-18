@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -17,7 +17,6 @@ const CloseIcon = () => (
   </svg>
 );
 
-
 type NavbarProps = {
   locale?: Locale;
 };
@@ -29,10 +28,10 @@ const Navbar: React.FC<NavbarProps> = ({ locale = "es" }) => {
   const homeHref = isEnglish ? "/en" : "/";
 
   const navItems: NavItem[] = [
-    { label: isEnglish ? "Home" : "Inicio", href: "#hero" },
-    { label: isEnglish ? "Services" : "Servicios", href: "#services" },
-    { label: isEnglish ? "Portfolio" : "Portafolio", href: "#portfolio" },
-    { label: isEnglish ? "Contact" : "Contacto", href: "#contact" },
+    { label: isEnglish ? "Home" : "Inicio", href: `${homeHref}#top` },
+    { label: isEnglish ? "Services" : "Servicios", href: `${homeHref}#services` },
+    { label: isEnglish ? "Portfolio" : "Portafolio", href: `${homeHref}#portfolio` },
+    { label: isEnglish ? "Contact" : "Contacto", href: `${homeHref}#contact` }
   ];
 
   useEffect(() => {
@@ -56,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ locale = "es" }) => {
             />
           </Link>
 
-          {/* Navegación Desktop */}
+          {/* Navegacion Desktop */}
           <div className="hidden md:flex space-x-6">
             {navItems.map((item) => (
               <Link
@@ -69,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ locale = "es" }) => {
             ))}
           </div>
 
-          {/* Botón Menú Móvil */}
+          {/* Boton Menu Movil */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -82,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({ locale = "es" }) => {
         </div>
       </div>
 
-      {/* Menú Móvil Desplegable */}
+      {/* Menu Movil Desplegable */}
       {isOpen && (
         <div className="md:hidden bg-brand-dark-secondary/95 backdrop-blur-sm pb-4">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
@@ -90,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ locale = "es" }) => {
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={() => setIsOpen(false)} // Cierra el menú al hacer clic
+                onClick={() => setIsOpen(false)}
                 className="text-brand-light-text hover:text-brand-blue-light block px-3 py-2 rounded-md text-base font-medium transition-colors w-full text-center"
               >
                 {item.label}
