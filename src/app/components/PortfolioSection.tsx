@@ -24,6 +24,12 @@ const portfolioBase: Array<Omit<PortfolioItem, 'title' | 'description' | 'alt'>>
     gradient: 'from-emerald-500 to-green-400',
   },
   {
+    image: '/votocapture.png',
+    href: 'https://votoclaroco.vercel.app/',
+    tags: ['Next.js', 'Tailwind.css', 'Politics'],
+    gradient: 'from-yellow-700 to-yellow-600',
+  },
+  {
     image: '/intracapture.png',
     href: 'https://api.whatsapp.com/send?phone=573239007932&text=I%20want%20my%20website%20right%20now!%F0%9F%92%BB',
     tags: ['Next.js', 'Intranet', 'Custom Modules', 'Scraping'],
@@ -47,6 +53,12 @@ const portfolioBase: Array<Omit<PortfolioItem, 'title' | 'description' | 'alt'>>
     tags: ['Next.js', 'Tailwind.css', 'Education'],
     gradient: 'from-purple-700 to-purple-600',
   },
+  {
+    image: '/medskincapture.png',
+    href: 'https://medskin.com.co/',
+    tags: ['Hostinger Builder', 'Custom Themes', 'Additional CSS'],
+    gradient: 'from-pink-700 to-pink-600',
+  }
 ];
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({ locale = 'es' }) => {
@@ -62,28 +74,40 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ locale = 'es' }) =>
         },
         {
           ...portfolioBase[1],
+          title: 'Votoclaro.co',
+          description: 'Website intended to provide information about the candidates in Colombian democratic elections.',
+          alt: 'Votoclaro.co',
+        },
+        {
+          ...portfolioBase[2],
           title: 'Modular Project v.01',
           description: 'Web application with a payment model that integrates multiple corporate functionalities.',
           alt: 'Modular Project v.01',
         },
         {
-          ...portfolioBase[2],
+          ...portfolioBase[3],
           title: 'Sky Beauty Line',
           description: 'Digital beauty products shop and beauty line machinery.',
           alt: 'Sky Beauty Line',
         },
         {
-          ...portfolioBase[3],
+          ...portfolioBase[4],
           title: 'Importadora Sky',
           description: 'Website for import services from the United States.',
           alt: 'Importadora Sky',
         },
         {
-          ...portfolioBase[4],
+          ...portfolioBase[5],
           title: 'Ley Explico',
           description: 'Educational platform to explain laws in a simple and accessible way.',
           alt: 'Ley Explico',
         },
+        {
+          ...portfolioBase[6],
+          title: 'MedSkin',
+          description: 'Website for a stetic center SPA.',
+          alt: 'MedSkin',
+        }
       ]
     : [
         {
@@ -94,28 +118,40 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ locale = 'es' }) =>
         },
         {
           ...portfolioBase[1],
+          title: 'Votoclaro.co',
+          description: 'Sitio web destinado a brindar información sobre los candidatos en las elecciones democráticas colombianas.',
+          alt: 'Votoclaro.co',
+        },
+        {
+          ...portfolioBase[2],
           title: 'Modular Project v.01',
           description: 'Aplicacion web de modelo pago que integra multiples funcionalidades corporativas.',
           alt: 'Modular Project v.01',
         },
         {
-          ...portfolioBase[2],
+          ...portfolioBase[3],
           title: 'Sky Beauty Line',
           description: 'Tienda digital de productos y maquinaria de estetica.',
           alt: 'Sky Beauty Line',
         },
         {
-          ...portfolioBase[3],
+          ...portfolioBase[4],
           title: 'Importadora Sky',
           description: 'Sitio web destinado a servicios de importacion desde Estados Unidos.',
           alt: 'Importadora Sky',
         },
         {
-          ...portfolioBase[4],
+          ...portfolioBase[5],
           title: 'Ley Explico',
           description: 'Plataforma educativa para explicar leyes de manera sencilla y accesible.',
           alt: 'Ley Explico',
         },
+        {
+          ...portfolioBase[6],
+          title: 'MedSkin',
+          description: 'Sitio web para un Spa centro de estética en Bucaramanga.',
+          alt: 'MedSkin',
+        }
       ];
 
   return (
