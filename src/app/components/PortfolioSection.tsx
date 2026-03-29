@@ -55,7 +55,7 @@ const portfolioBase: Array<Omit<PortfolioItem, 'title' | 'description' | 'alt'>>
   },
   {
     image: '/medskincapture.png',
-    href: 'https://medskin.com.co/',
+    href: 'https://www.medskincol.com/',
     tags: ['Hostinger Builder', 'Custom Themes', 'Additional CSS'],
     gradient: 'from-pink-700 to-pink-600',
   }
